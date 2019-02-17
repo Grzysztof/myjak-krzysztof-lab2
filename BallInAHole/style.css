@@ -1,31 +1,35 @@
 #board{
-    position: relative;
+    position: absolute;
+    top: 0;
+    left: 0;
     width: 640px;
     height: 480px;
     background: grey;
 }
 #board > #ball{
-    position: relative;
+    position: absolute;
     width: 20px;
     height: 20px;
     border-radius: 10px;
     background: pink;
+    z-index: 50;
 }
-#board> #hole{
+#board > #hole{
     position: relative;
     width: 30px;
     height: 30px;
     border-radius: 15px;
     background: black;
+    z-index: 20;
 }
-#timer{
-    position: relative;
+#board > #timer{
+    position: absolute;
     width: 100px;
     height: 30px;
     color: white;
     font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
     font-size: 20px;
+    z-index: 99;
     top: 0px;
     left: 2px;
-    
 }
