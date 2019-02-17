@@ -1,5 +1,7 @@
 //Krzystof Myjak 2019 r.
+//get canvas element
 let c = document.querySelector(".editor-canvas");
+//create context variable for give canvas
 let ctx = c.getContext("2d");
 
 let pixelBuffer;
