@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <style>
+       /* Set the size of the div element that contains the map */
+      #map {
+        height: 400px;  /* The height is 400 pixels */
+        width: 100%;  /* The width is the width of the web page */
+       }
+    </style>
+  </head>
+  <body>
+    <h3>My Google Maps Demo</h3>
+    <!--The div element for the map -->
+    <div id="map"></div>
+    <script>
+    let apiResp = new Array();
+    let connected = new Array();
+    let myPointer = {
+            id: Math.floor(Math.random() * (1000 - 1) + 1),
+            position:{
+                lat: 50, 
+                lng: 20
+            },
+        }
+    let otherPointer = {
+        position : {
+        }
+    };
+    let myMarker;
+    let otherMarker;
+
+
+    document.addEventListener('keydown', (e)=>klik(e));
+
+    function klik(e){
+        switch (e.key){
+            case "ArrowUp":
+                myPointer.position.lat += 0.03;
+            break;
+            case "ArrowDown":
+                myPointer.position.lat -= 0.03;
+            break;
+            case "ArrowLeft":
+                myPointer.position.lng -= 0.03;
+            break;
+            case "ArrowRight":
+                myPointer.position.lng += 0.03;
+            break;
+        }
+        update();
+    }
+    const socket = new WebSocket('ws://szkolenia.design.net.pl:8010');
+
+    // Connection opened
+    socket.addEventListener('open', function (event) {
+        socket.send(JSON.stringify(myPointer));
+        console.log('Message to server ', JSON.stringify(myPointer));
+    });
+
+    // Listen for messages
+    socket.addEventListener('message', function (event) {
+        console.log('Message from server ', event.data);
+        let apiResponse = JSON.parse(event.data);
+        //updateUsers();
+        console.log(apiResponse, "API RESPONSE");
+        otherPointer.id = apiResponse.id;
+        otherPointer.position.lat = apiResponse.position.lat;
+        otherPointer.position.lng = apiResponse.position.lng;
+
+
+    });
+    function initMap() {
+        var map = new google.maps.Map(
+            document.getElementById('map'), {zoom: 6, center: myPointer.position});
+            myMarker = new google.maps.Marker({position: otherPointer.position , map: map});
+            otherMarker = new google.maps.Marker({position: otherPointer.position , map: map});
+            apiResp.forEach(element => {
+                new google.maps.Marker({position: element.position, map: map});
+            });
+            update();
+        }
+
+
+        function update(){
+            myMarker.setPosition(myPointer.position);
+            otherMarker.setPosition(otherPointer.position);
+            socket.send(JSON.stringify(myPointer));
+        }
+    </script>
+    <!--Load the API from the specified URL
+    * The async attribute allows the browser to render the page while the API loads
+    * The key parameter will contain your own API key (which is not needed for this tutorial)
+    * The callback parameter executes the initMap() function
+    -->
+    <script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=[KEY_REMOVED_DUE_TO_POSTING_FILE_ON_PUBLIC_REPOSITORY]&callback=initMap">
+    </script>
+  </body>
+</html>
