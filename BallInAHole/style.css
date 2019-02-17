@@ -18,3 +18,14 @@
     border-radius: 15px;
     background: black;
 }
+#timer{
+    position: relative;
+    width: 100px;
+    height: 30px;
+    color: white;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-size: 20px;
+    top: 0px;
+    left: 2px;
+    
+}
