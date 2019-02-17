@@ -14,7 +14,9 @@
         <div class="top"> 
             <form id="imageUpload">
                 <input type="file" name="file" id="image">
-                <input type="submit" />
+                <label for="image">Wybierz plik</label>
+                <input type="submit" id="fSubmit"/>
+                <label for="fSubmit" ><i class="fas fa-upload fa-lg"></i></label>
             </form>
             <a class="save"><i class="far fa-save fa-2x"></i></a>
         </div>
@@ -23,7 +25,7 @@
                 <canvas class="editor-canvas" width="640" height="480"></canvas>        
             </div>
             <div class="controls-box">
-                <span>Opcje:</span>
+                <span>Opcje</span>
                 <form>
                     <div class="control-slider">
                         <span>Czerwony</span>
@@ -54,6 +56,10 @@
                         <span>Jasność</span>
                         <label for="brightControl">0</label>
                         <input type="range" id="brightInput" class="slider" min="-100" max="100" value="0">
+                    </div>
+                    <div class="control-slider">
+                        <span>Kolor pędzla</span>
+                        <input type="color" id="paint_color" name="paint_color" value="#44bd32">
                     </div>
                 </form>
             </div>

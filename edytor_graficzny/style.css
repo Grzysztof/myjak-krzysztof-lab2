@@ -87,9 +87,9 @@ label>span{
     border-radius: 5px;   
     background: #d3d3d3;
     outline: none;
-  }
+}
   
-  .slider::-webkit-slider-thumb {
+.slider::-webkit-slider-thumb {
     -webkit-appearance: none;
     appearance: none;
     width: 20px;
@@ -97,12 +97,49 @@ label>span{
     border-radius: 50%; 
     background: #40739e;
     cursor: pointer;
-  }
+}
   
-  .slider::-moz-range-thumb {
+.slider::-moz-range-thumb {
     width: 20px;
     height: 20px;
     border-radius: 50%;
     background: #40739e;
     cursor: pointer;
-  }
+}
+input[type="color"] {
+	-webkit-appearance: none;
+	border: none;
+}
+input[type="color"]::-webkit-color-swatch-wrapper {
+    padding: 0;
+    border: none;
+}
+input[type="color"]::-webkit-color-swatch {
+	border: none;
+}
+/* input */
+#image {
+	width: 0.1px;
+	height: 0.1px;
+	opacity: 0;
+	overflow: hidden;
+	position: absolute;
+	z-index: -1;
+}
+#image + label{
+    border: 2px solid#d3d3d3; 
+    padding: 2px 4px;
+    border-radius: 2px;
+    cursor: pointer;
+}
+#fSubmit{
+	width: 0.1px;
+	height: 0.1px;
+	opacity: 0;
+	overflow: hidden;
+	position: absolute;
+    z-index: -1;
+}
+#fSubmit + label > i{
+    cursor: pointer;
+}

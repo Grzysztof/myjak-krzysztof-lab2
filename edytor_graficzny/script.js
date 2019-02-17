@@ -14,7 +14,13 @@ let controls = {
     blue: document.querySelector("#blueInput"),
     transparency: document.querySelector("#transInput"),
     contrast: document.querySelector("#contrastInput"),
-    brightness: document.querySelector("#brightInput")
+    brightness: document.querySelector("#brightInput"),
+    color: document.querySelector("#paint_color")
+}
+//mouse x, y
+let mouse = {
+    x: 0,
+    y: 0
 }
 //Image functions
 
@@ -37,21 +43,6 @@ imageUpload.addEventListener('submit', (e) => {
 });
 
 //Inputs
-controls.red.oninput = function(){
-    document.querySelector('label[for="redControl"]').innerHTML = this.value;
-    filter();
-}
-
-controls.green.oninput = function(){
-    document.querySelector('label[for="greenControl"]').innerHTML = this.value;
-    filter();
-}
-
-controls.blue.oninput = function(){
-    document.querySelector('label[for="blueControl"]').innerHTML = this.value;
-    filter();
-}
-
 controls.transparency.oninput = function(){
     document.querySelector('label[for="transControl"]').innerHTML = this.value;
     filter();
@@ -90,7 +81,35 @@ let filter = function(){
 
     ctx.putImageData(pixelBuffer, 0, 0);
 }
+//Drawing on image
+document.addEventListener('mousemove', (e) => {
+    if (e.buttons !== 1) return;
+        ctx.beginPath();
+        ctx.lineCap = 'round';
+        ctx.lineWidth = 2;
+        ctx.strokeStyle = controls.color.value;
+        ctx.moveTo(mouse.x, mouse.y);
+        mouseAction(e);
+        ctx.lineTo(getMousePos(c, e).x, getMousePos(c, e).y);
+        ctx.stroke();
+});
+
+
 //misc supporting functions
+let mouseAction = function(e){
+    mouse.x = getMousePos(c, e).x;
+    mouse.y = getMousePos(c, e).y;
+}
+//mouse data relative to canvas element
+let getMousePos = function(canvas, evt) {
+    var rect = canvas.getBoundingClientRect();
+    return {
+      x: evt.clientX - rect.left,
+      y: evt.clientY - rect.top
+    };
+}
+
+
 let parseInput = function(val){
     return val / 100;
 }
@@ -102,3 +121,5 @@ let calcColor = function(value) {
     }
     return value;
 }
+document.addEventListener('mouseenter',e => mouseAction(e));
+document.addEventListener('mousedown', e => mouseAction(e));
