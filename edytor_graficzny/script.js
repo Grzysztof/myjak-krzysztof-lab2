@@ -77,6 +77,7 @@ let filter = function(){
         pixelBuffer.data[i+2] = calcColor(f * (((pixelOrigin.data[i+2] * parseInput(controls.green.value)) + 255 * parseInput(controls.brightness.value)) - 128.0) + 128.0);
         //transparency
         pixelBuffer.data[i + 3] = pixelOrigin.data[i + 3] * parseInput(controls.transparency.value);
+        
     }
 
     ctx.putImageData(pixelBuffer, 0, 0);

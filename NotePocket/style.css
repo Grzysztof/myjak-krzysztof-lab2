@@ -1,0 +1,143 @@
+body{
+    padding: 0;
+    margin: 0;
+    font-family: 'Slabo 27px', serif;
+    color: #2f3640;
+    font-size: 28px;
+}
+.content{
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: row
+}
+.note-list{
+    width:20vw;
+    height: 100vh;
+    overflow: hidden;
+    overflow-y: auto;
+}
+.note-list span{
+    display: block;
+    background: #e84118;
+    color: #f5f6fa;
+}
+.note-list ul{
+    text-decoration: none;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+.note-list ul>li{
+    text-emphasis: none;
+    margin: 0;
+    padding: 0;
+}
+.note-list ul>li:hover{
+    opacity: 0.4;
+    cursor: pointer;
+}
+.note-editor{
+    width: 80vw;
+    height: 100vh;
+    overflow-y: auto;
+}
+.note-editor>.bar{
+    display: flex;
+    flex-direction: row;
+}
+.bar>input[type="text"]{
+    height: 50px;
+    width: 80%;
+    font-size: 35px;
+    border: none;
+    
+}
+.bar>button{
+    width: calc(20% - 80px);
+    background: #e84118;
+    border: none;
+    color: #f5f6fa;
+}
+.bar>#note-color{
+    position: relative;
+    top: 5px;
+    margin-right: 5px;
+    width: 40px;
+    height: 40px;
+}
+.bar>button:hover{
+    background: #c23616;
+}
+.note-editor>.text{
+    height: calc( 100vh - 50px);
+    display: flex;
+    flex-direction: row;
+}
+.text>textarea{
+    border: none;
+    flex:1;
+    color: #2f3640;
+    font-size: 20px;
+}
+/*custom pin*/
+
+.pin-container {
+    display: block;
+    position: relative;
+    padding-left: 32px;
+    padding-right: 20px; 
+    padding-top: 5px;
+    cursor: pointer;
+    font-size: 22px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    color: #2f3640;
+  }
+  
+  .pin-container input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+  }
+  
+  .checkmark {
+    position: absolute;
+    top: 4px;
+    left: 0;
+    height: 40px;
+    width: 40px;
+    border: 2px solid #e84118;
+  }
+  
+  .pin-container:hover input ~ .checkmark {
+    background-color: #e84118;
+  }
+
+  .pin-container input:checked ~ .checkmark {
+    /* background-color: #e84118; */
+  }
+  .checkmark:after {
+    content: "";
+    position: absolute;
+    display: none;
+    
+  }
+  .pin-container input:checked ~ .checkmark:after {
+    display: block;
+  }
+  .pin-container .checkmark:after {
+    left: 5px;
+    top: 6px;
+    width: 25px;
+    height: 10px;
+    border: solid #c23616;
+    border-width: 0 5px 5px 0;
+    -webkit-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg);
+  }
