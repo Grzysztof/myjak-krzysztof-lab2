@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Jupiter3000</title>
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Wallpoet" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css" integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js"></script>
+    </style>
+</head>
+<body>
+    <audio src="sound/boom.wav" id="q"></audio>
+    <audio src="sound/clap.wav" id="w"></audio>
+    <audio src="sound/hihat.wav" id="e"></audio>
+    <audio src="sound/kick.wav" id="r"></audio>
+    <audio src="sound/my-man.mp3" id="u"></audio>
+    <audio src="sound/openhat.wav" id="i"></audio>
+    <audio src="sound/pickle_rick.mp3" id="o"></audio>
+    <audio src="sound/ride.wav" id="p"></audio>
+    
+    <div class="wrapper">
+        <div class="display" id="timer">
+
+        </div>
+        <div class="container">
+            <div class="box controls">
+                <button onclick="playAll()" class="play"><i class="fas fa-play fa-2x"></i></button>
+            </div>
+            <div class="box">
+                <span class="title">
+                    SEQUENCE 1
+                </span>
+                <div class="buttons">
+                    <button onclick="startRecording(ch_array[0])" class="rec"><i class="fas fa-circle fa-2x"></i></button>
+                    <button onclick="playRecording(ch_array[0])" class="play"><i class="fas fa-play fa-2x"></i></button>
+                    <button onclick="stopRecording(ch_array[0])" ><i class="fas fa-square fa-2x"></i></button>
+                    <label class="switch"><input onclick="enable(0)" type="checkbox" /><div></div></label>
+                </div>
+            </div>
+            <div class="box">
+                    <span class="title">
+                        SEQUENCE 2
+                    </span>
+                    <div class="buttons">
+                        <button onclick="startRecording(ch_array[1])" class="rec"><i class="fas fa-circle fa-2x"></i></button>
+                        <button onclick="playRecording(ch_array[1])" class="play"><i class="fas fa-play fa-2x"></i></button>
+                        <button onclick="stopRecording(ch_array[1])" ><i class="fas fa-square fa-2x"></i></button>
+                        <label class="switch"><input onclick="enable(1)" type="checkbox" /><div></div></label>
+                    </div>
+                </div>
+            <div class="box">
+                <span class="title">
+                    SEQUENCE 3
+                </span>
+                <div class="buttons">
+                    <button onclick="startRecording(ch_array[2])" class="rec"><i class="fas fa-circle fa-2x"></i></button>
+                    <button onclick="playRecording(ch_array[2])" class="play"><i class="fas fa-play fa-2x"></i></button>
+                    <button onclick="stopRecording(ch_array[2])" ><i class="fas fa-square fa-2x"></i></button>
+                    <label class="switch"><input onclick="enable(2)" type="checkbox" /><div></div></label>
+                </div>
+            </div>
+            <div class="box">
+                <span class="title">
+                    SEQUENCE 4
+                </span>
+                    <div class="buttons">
+                    <button onclick="startRecording(ch_array[3])" class="rec"><i class="fas fa-circle fa-2x"></i></button>
+                    <button onclick="playRecording(ch_array[3])" class="play"><i class="fas fa-play fa-2x"></i></button>
+                    <button onclick="stopRecording(ch_array[3])" ><i class="fas fa-square fa-2x"></i></button>
+                    <label class="switch"><input onclick="enable(3)" type="checkbox" /><div></div></label>
+                </div>
+             </div>
+        </div>
+        <div class="description">
+            <h1>Jupiter3000 &trade;</h1>
+            <p>
+                Użyj klawiszy od Q do R i od U do P aby wydobyć dzwieki. Aby nagrać scieżke kliknij przycisk na wybranym sekwenserze. Używając przełącznika zaznacz kilka sekwenserów i odtwarzaj je równocześnie klikając przycisk play z lewej strony. 
+            </p>
+            <span>
+                Projekt i wykonianie: Krzysztof Myjak.
+            </span>
+        </div>            
+    </div>
+    </body>
+</html>
