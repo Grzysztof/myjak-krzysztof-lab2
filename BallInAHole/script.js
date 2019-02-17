@@ -24,7 +24,7 @@ let time;
 
 let orientation = function(e){
     device.x = e.gamma;
-    device.y = (90 + e.beta);
+    device.y = (90 + e.alpha);
 }
 
 let update = function(){
